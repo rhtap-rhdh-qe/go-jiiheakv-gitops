@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-jiiheakv-gitops
+  description: This is GitOps manifest for go-jiiheakv   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-jiiheakv
+    backstage.io/kubernetes-id: go-jiiheakv 
+    backstage.io/techdocs-ref: dir:. 
+    jenkins.io/job-full-name: go-jiiheakv-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-jiiheakv
